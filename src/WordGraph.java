@@ -1,11 +1,21 @@
 import java.util.Scanner;
+import java.util.concurrent.BrokenBarrierException;
+import java.util.concurrent.CyclicBarrier;
 
-public class WordGraph {
+public class WordGraph extends Thread {
 
     private IndexSET<String> words = new IndexSET<>();
+    private CyclicBarrier barrier;
+    private Scanner file;
     private Graph G;
 
-    public WordGraph(Scanner file) {
+    public WordGraph(Scanner file, CyclicBarrier barrier) {
+        this.file = file;
+        this.barrier = barrier;
+    }
+
+    @Override
+    public void run() {
 
         while (file.hasNext()) {
             String word = file.nextLine();
@@ -23,6 +33,9 @@ public class WordGraph {
             }
         }
 
+        try { barrier.await(); }
+        catch (InterruptedException | BrokenBarrierException e) { }
+
     }
 
     public void wordLadder(String from, String to) {
@@ -35,7 +48,7 @@ public class WordGraph {
             for (int v : bfs.pathTo(words.indexOf(to)))
                 StdOut.println(words.keyOf(v));
         }
-        else StdOut.println("NOT CONNECTED");
+        else StdOut.println("Cannot transform " + from + " to " + to);
         StdOut.println();
     }
 
