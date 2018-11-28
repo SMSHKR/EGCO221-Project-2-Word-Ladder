@@ -23,16 +23,14 @@ class Main {
                 graph.start();
 
                 int count = 0;
-                System.out.print("Initializing...|");
-
                 while (barrier.getNumberWaiting() < 1) {
 
                     switch (++count) {
-                        case 1 : System.out.print("\b/");  break;
-                        case 2 : System.out.print("\b-");  break;
-                        case 3 : System.out.print("\b\\"); break;
+                        case 1 : System.out.print("\rInitializing.../");  break;
+                        case 2 : System.out.print("\rInitializing...-");  break;
+                        case 3 : System.out.print("\rInitializing...\\"); break;
                         default:
-                            System.out.print("\b|");
+                            System.out.print("\rInitializing...|");
                             count = 0;
                             break;
                     }
