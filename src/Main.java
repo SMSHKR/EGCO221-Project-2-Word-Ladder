@@ -1,10 +1,10 @@
-import org.jgrapht.graph.SimpleDirectedWeightedGraph;
-import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
+class Main {
 
-class Graph {
-    private SimpleDirectedWeightedGraph SG;
-    private DijkstraShortestPath<String, Integer> DSP ;
+    public static void main(String [] args) {
 
+        //
+
+    }
 
 }
 
