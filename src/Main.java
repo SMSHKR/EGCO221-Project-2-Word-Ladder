@@ -26,19 +26,21 @@ class Main {
                 while (barrier.getNumberWaiting() < 1) {
 
                     switch (++count) {
-                        case 1 : System.out.print("\rInitializing.../");  break;
-                        case 2 : System.out.print("\rInitializing...-");  break;
-                        case 3 : System.out.print("\rInitializing...\\"); break;
+                        case 1 : System.out.print("\rInitializing .");  break;
+                        case 2 : System.out.print("\rInitializing . .");  break;
+                        case 3 : System.out.print("\rInitializing . . ."); break;
                         default:
-                            System.out.print("\rInitializing...|");
+                            System.out.print("\rInitializing");
                             count = 0;
                             break;
                     }
 
-                    try { Thread.sleep(200); }
+                    try { Thread.sleep(300); }
                     catch (InterruptedException e) { }
 
                 }
+
+                System.out.println("\rInitialization completed.");
 
             } catch (FileNotFoundException e) {
                 System.err.println(infile + " File Not Found.");
@@ -46,8 +48,6 @@ class Main {
                 infile = scan.nextLine();
             }
         }
-
-        System.out.println();
 
         try { barrier.await(); }
         catch (InterruptedException | BrokenBarrierException e) { }
