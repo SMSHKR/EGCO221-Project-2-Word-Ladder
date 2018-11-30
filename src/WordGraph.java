@@ -6,6 +6,7 @@ import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
@@ -35,6 +36,8 @@ public class WordGraph extends Thread {
             String word = file.nextLine();
             words.add(word);
         }
+
+        Collections.sort(words);
 
         SG = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
         G  = SG;
@@ -134,7 +137,6 @@ public class WordGraph extends Thread {
         final String finalWord = word;
         Stream<String> wordStream = words.stream();
         wordStream.filter(arg -> arg.startsWith(finalWord))
-                  .sorted()
                   .forEach(System.out::println);
 
     }
