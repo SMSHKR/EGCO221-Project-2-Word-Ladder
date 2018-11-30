@@ -113,7 +113,7 @@ public class WordGraph extends Thread {
 
             System.out.printf("\nTotal cost = %.0f\n", path.getWeight());
 
-        } catch (IllegalArgumentException e) { System.out.println("Cannot transform " + from + " into " + to); }
+        } catch (IllegalArgumentException | NullPointerException e) { System.out.println("Cannot transform " + from + " into " + to); }
 
     }
 
