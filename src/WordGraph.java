@@ -75,9 +75,12 @@ public class WordGraph extends Thread {
         return -1;
     }
 
-    public void wordLadder() {
-
+    private String input() {
         Scanner scan = new Scanner(System.in);
+        return scan.next().toLowerCase();
+    }
+
+    public void wordLadder() {
 
         boolean found;
         String from = "";
@@ -86,14 +89,14 @@ public class WordGraph extends Thread {
         found = false;
         while (!found) {
             System.out.print("Enter word to transform from : ");
-            from = scan.nextLine().toLowerCase();
+            from = input();
             found = validate(from);
         }
 
         found = false;
         while (!found) {
             System.out.print("Enter word to transform to : ");
-            to = scan.nextLine().toLowerCase();
+            to = input();
             found = validate(to);
         }
 
