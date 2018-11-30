@@ -53,6 +53,7 @@ class Main {
         catch (InterruptedException | BrokenBarrierException e) { }
 
         graph.wordLadder();
+        graph.search();
 
     }
 

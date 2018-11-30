@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
+import java.util.stream.Stream;
 
 import static java.lang.Math.abs;
 
@@ -119,6 +120,24 @@ public class WordGraph extends Thread {
         if (words.contains(word)) return true;
         System.err.println(word + " is not in word list");
         return false;
+    }
+
+    public void search() {
+
+        String word = "";
+
+        boolean valid = false;
+        while (!valid) {
+            word = input("Search = ");
+            if (word.length() <= 5) valid = true;
+        }
+
+        final String finalWord = word;
+        Stream<String> wordStream = words.stream();
+        wordStream.filter(arg -> arg.startsWith(finalWord))
+                  .sorted()
+                  .forEach(System.out::println);
+
     }
 
 }
