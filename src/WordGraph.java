@@ -135,9 +135,9 @@ public class WordGraph extends Thread {
         }
 
         final String finalWord = word;
-        Stream<String> wordStream = words.stream();
-        wordStream.filter(arg -> arg.startsWith(finalWord))
-                  .forEach(System.out::println);
+        words.stream()
+             .filter(arg -> arg.startsWith(finalWord))
+             .forEach(System.out::println);
 
     }
 
