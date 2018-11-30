@@ -90,13 +90,13 @@ public class WordGraph extends Thread {
 
         found = false;
         while (!found) {
-            from = input("Enter word to transform from : ");
+            from = input("Enter word to \u2630 from : ");
             found = validate(from);
         }
 
         found = false;
         while (!found) {
-            to = input("Enter word to transform to : ");
+            to = input("Enter word to \u2630 to : ");
             found = validate(to);
         }
 
