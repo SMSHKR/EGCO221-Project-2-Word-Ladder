@@ -86,14 +86,14 @@ public class WordGraph extends Thread {
         found = false;
         while (!found) {
             System.out.print("Enter word to transform from : ");
-            from = scan.nextLine();
+            from = scan.nextLine().toLowerCase();
             found = validate(from);
         }
 
         found = false;
         while (!found) {
             System.out.print("Enter word to transform to : ");
-            to = scan.nextLine();
+            to = scan.nextLine().toLowerCase();
             found = validate(to);
         }
 
