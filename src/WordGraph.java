@@ -110,7 +110,7 @@ public class WordGraph extends Thread {
             for (DefaultWeightedEdge e : path.getEdgeList())
                 System.out.printf("%s (+%.0f)\n", G.getEdgeTarget(e), G.getEdgeWeight(e));
 
-            System.out.printf("\nTotal cost = %.0f", path.getWeight());
+            System.out.printf("\nTotal cost = %.0f\n", path.getWeight());
 
         } catch (IllegalArgumentException e) { System.out.println("Cannot transform " + from + " into " + to); }
 
@@ -128,10 +128,12 @@ public class WordGraph extends Thread {
 
         boolean valid = false;
         while (!valid) {
-            word = input("Search = ");
+            word = input("\u2315 : ");
             if (word.length() <= 5) valid = true;
+            else System.err.println("Invalid Input.");
         }
 
+        System.out.println("Found word(s) :");
         final String finalWord = word;
         words.stream()
              .filter(arg -> arg.startsWith(finalWord))
