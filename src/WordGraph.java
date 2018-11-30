@@ -75,7 +75,8 @@ public class WordGraph extends Thread {
         return -1;
     }
 
-    private String input() {
+    private String input(String description) {
+        System.out.print(description);
         Scanner scan = new Scanner(System.in);
         return scan.next().toLowerCase();
     }
@@ -88,15 +89,13 @@ public class WordGraph extends Thread {
 
         found = false;
         while (!found) {
-            System.out.print("Enter word to transform from : ");
-            from = input();
+            from = input("Enter word to transform from : ");
             found = validate(from);
         }
 
         found = false;
         while (!found) {
-            System.out.print("Enter word to transform to : ");
-            to = input();
+            to = input("Enter word to transform to : ");
             found = validate(to);
         }
 
