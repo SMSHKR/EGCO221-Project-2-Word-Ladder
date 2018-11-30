@@ -3,7 +3,7 @@ import org.jgrapht.GraphPath;
 import org.jgrapht.Graphs;
 import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
 import org.jgrapht.graph.DefaultWeightedEdge;
-import org.jgrapht.graph.SimpleWeightedGraph;
+import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,7 +21,7 @@ public class WordGraph extends Thread {
     private ArrayList<String> words = new ArrayList<>();
 
     private Graph<String, DefaultWeightedEdge> G;
-    private SimpleWeightedGraph<String, DefaultWeightedEdge> SG;
+    private SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> SG;
 
     public WordGraph(Scanner file, CyclicBarrier barrier) {
         this.file = file;
@@ -38,7 +38,7 @@ public class WordGraph extends Thread {
 
         Collections.sort(words);
 
-        SG = new SimpleWeightedGraph<>(DefaultWeightedEdge.class);
+        SG = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
         G  = SG;
 
         for (String word1 : words)
@@ -51,6 +51,7 @@ public class WordGraph extends Thread {
                     int diff = charDiff(word1, word2);
                     // System.out.println("addEdge " + word1 + ", " + word2 + " diff : " + diff);
                     Graphs.addEdgeWithVertices(G, word1, word2, diff);
+                    Graphs.addEdgeWithVertices(G, word2, word1, diff);
                 }
 
             }
