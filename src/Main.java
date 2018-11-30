@@ -52,17 +52,7 @@ class Main {
         try { barrier.await(); }
         catch (InterruptedException | BrokenBarrierException e) { }
 
-        System.out.println();
-
-        System.out.print("Enter 5-letter word 1 = ");
-        String word1 = scan.nextLine();
-
-        System.out.print("Enter 5-letter word 2 = ");
-        String word2 = scan.nextLine();
-
-        System.out.println();
-
-        graph.wordLadder(word1, word2);
+        graph.wordLadder();
 
     }
 
