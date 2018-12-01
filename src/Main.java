@@ -1,8 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
 
 class Main {
 
@@ -11,18 +9,16 @@ class Main {
 
     public static void main(String [] args) {
 
-        CyclicBarrier barrier = new CyclicBarrier(2);
-
         boolean opened = false;
         while (!opened) {
             try (Scanner file = new Scanner(new File(infile))) {
 
                 opened = true;
-                graph = new WordGraph(file, barrier);
+                graph = new WordGraph(file);
                 graph.start();
 
                 int count = 0;
-                while (barrier.getNumberWaiting() < 1) {
+                while (!graph.getState().equals(Thread.State.TERMINATED)) {
 
                     switch (++count) {
                         case 1 : System.out.print("\rInitializing .");  break;
@@ -43,9 +39,6 @@ class Main {
 
             } catch (FileNotFoundException e) { inputFile(); }
         }
-
-        try { barrier.await(); }
-        catch (InterruptedException | BrokenBarrierException e) { }
 
         boolean continued = true;
         while (continued) continued = menu();

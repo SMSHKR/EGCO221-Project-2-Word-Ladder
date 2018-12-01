@@ -8,14 +8,11 @@ import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
 
 import static java.lang.Math.abs;
 
 public class WordGraph extends Thread {
 
-    private CyclicBarrier barrier;
     private Scanner file;
 
     private ArrayList<String> words = new ArrayList<>();
@@ -23,10 +20,7 @@ public class WordGraph extends Thread {
     private Graph<String, DefaultWeightedEdge> G;
     private SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> SG;
 
-    public WordGraph(Scanner file, CyclicBarrier barrier) {
-        this.file = file;
-        this.barrier = barrier;
-    }
+    public WordGraph(Scanner file) { this.file = file; }
 
     @Override
     public void run() {
@@ -55,9 +49,6 @@ public class WordGraph extends Thread {
                 }
 
             }
-
-        try { barrier.await(); }
-        catch (InterruptedException | BrokenBarrierException e) { }
 
     }
 
