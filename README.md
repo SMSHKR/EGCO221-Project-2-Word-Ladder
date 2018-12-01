@@ -5,5 +5,5 @@ By
    - Tanin      Limsiriwong     6013292   EGCO
    - Thammarat  Kowitkanit      6013293   EGCO
    
-</Br>  [GitHub](https://github.com/SMSHKR/EGCO221-Project1-Swinging-Monkey)
+</Br>  [GitHub](https://github.com/SMSHKR/EGCO221-Project2-Word-Ladder)
 </Br>  [Direction](https://drive.google.com/file/d/17h9Tk9PYMhmbwPTGGpls5mLNKglP30Dr/view)
