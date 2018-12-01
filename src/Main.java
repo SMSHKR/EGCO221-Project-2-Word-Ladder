@@ -51,7 +51,7 @@ class Main {
         System.out.println("Select Mode");
         System.out.println("1. Search Mode");
         System.out.println("2. Word Ladder Mode");
-        System.out.println("Press anything else to exit");
+        System.out.println("Select anything else to exit");
 
         System.out.println();
         System.out.print  ("Choice : ");
