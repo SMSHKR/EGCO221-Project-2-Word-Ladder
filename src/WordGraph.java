@@ -98,13 +98,15 @@ public class WordGraph extends Thread {
         try {
             GraphPath<String, DefaultWeightedEdge> path = DSP.getPath(from, to);
 
+            if (path == null) throw new IllegalArgumentException();
+
             System.out.println(from);
             for (DefaultWeightedEdge e : path.getEdgeList())
                 System.out.printf("%s (+%.0f)\n", G.getEdgeTarget(e), G.getEdgeWeight(e));
 
             System.out.printf("\nTotal cost = %.0f\n", path.getWeight());
 
-        } catch (IllegalArgumentException | NullPointerException e) { System.out.println("Cannot transform " + from + " into " + to); }
+        } catch (IllegalArgumentException e) { System.out.println("Cannot transform " + from + " into " + to); }
 
     }
 
