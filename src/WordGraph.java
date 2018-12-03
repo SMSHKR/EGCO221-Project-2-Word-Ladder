@@ -5,9 +5,8 @@ import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
 import org.jgrapht.graph.DefaultWeightedEdge;
 import org.jgrapht.graph.SimpleDirectedWeightedGraph;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 import static java.lang.Math.abs;
 
@@ -15,7 +14,7 @@ public class WordGraph extends Thread {
 
     private Scanner file;
 
-    private ArrayList<String> words = new ArrayList<>();
+    private TreeSet<String> words = new TreeSet<>();
 
     private Graph<String, DefaultWeightedEdge> G;
     private SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> SG;
@@ -31,8 +30,6 @@ public class WordGraph extends Thread {
             String word = file.nextLine();
             words.add(word);
         }
-
-        Collections.sort(words);
 
         SG = new SimpleDirectedWeightedGraph<>(DefaultWeightedEdge.class);
         G  = SG;
