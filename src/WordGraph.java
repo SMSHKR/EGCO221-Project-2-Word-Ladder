@@ -75,7 +75,7 @@ public class WordGraph extends Thread {
     private String input(String description) {
         System.out.print(description);
         Scanner scan = new Scanner(System.in);
-        return scan.next().toLowerCase();
+        return scan.nextLine().toLowerCase();
     }
 
     public void wordLadder() {
@@ -87,12 +87,14 @@ public class WordGraph extends Thread {
         found = false;
         while (!found) {
             from = input("Enter word to \u2630 from : ");
+            if (from.equals("")) return;
             found = validate(from);
         }
 
         found = false;
         while (!found) {
             to = input("Enter word to \u2630 to : ");
+            if (to.equals("")) return;
             found = validate(to);
         }
 
@@ -126,6 +128,7 @@ public class WordGraph extends Thread {
         boolean valid = false;
         while (!valid) {
             word = input("\u2315 : ");
+            if (word.equals("")) return;
             if (word.length() <= 5) valid = true;
             else System.err.println("Invalid Input.");
         }

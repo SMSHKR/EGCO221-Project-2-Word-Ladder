@@ -72,7 +72,7 @@ class Main {
         Scanner scan = new Scanner(System.in);
         int choice;
         try {
-            choice = Integer.parseInt(scan.next());
+            choice = Integer.parseInt(scan.nextLine());
             if (choice < 1 || choice > 2) throw new Exception();
         }
         catch (Exception e) { return 0; }
