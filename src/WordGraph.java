@@ -20,6 +20,8 @@ public class WordGraph extends Thread {
     private Graph<String, DefaultWeightedEdge> G;
     private SimpleDirectedWeightedGraph<String, DefaultWeightedEdge> SG;
 
+    private DijkstraShortestPath<String, DefaultWeightedEdge> DSP;
+
     public WordGraph(Scanner file) { this.file = file; }
 
     @Override
@@ -49,6 +51,8 @@ public class WordGraph extends Thread {
                 }
 
             }
+
+        DSP = new DijkstraShortestPath<>(SG);
 
     }
 
@@ -94,7 +98,6 @@ public class WordGraph extends Thread {
 
         System.out.println();
 
-        DijkstraShortestPath<String, DefaultWeightedEdge> DSP = new DijkstraShortestPath<>(SG);
         try {
             GraphPath<String, DefaultWeightedEdge> path = DSP.getPath(from, to);
 
