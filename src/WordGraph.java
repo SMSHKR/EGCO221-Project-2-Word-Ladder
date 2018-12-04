@@ -21,6 +21,9 @@ public class WordGraph extends Thread {
 
     private DijkstraShortestPath<String, DefaultWeightedEdge> DSP;
 
+    private boolean completed = false;
+    public boolean isCompleted() { return completed; }
+
     public WordGraph(Scanner file) { this.file = file; }
 
     @Override
@@ -50,6 +53,8 @@ public class WordGraph extends Thread {
             }
 
         DSP = new DijkstraShortestPath<>(SG);
+
+        completed = true;
 
     }
 

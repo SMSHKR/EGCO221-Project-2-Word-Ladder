@@ -35,7 +35,12 @@ class Main {
 
                 }
 
-                System.out.println("\rInitialization completed.");
+                if (graph.isCompleted())
+                     System.out.println("\rInitialization completed.");
+                else {
+                    System.out.println("\rInitialization failed.");
+                    return;
+                }
 
             } catch (FileNotFoundException e) { inputFile(); }
         }
